@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Poppins Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/Poppins-Medium.ttf") format("ttf");
+}
+@font-face {
+    font-family: "Poppins ExtraLigth";
+    font-style: normal;
+    font-weight: 200;
+    src: url("/fonts/Poppins-ExtraLight") format("ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: Poppins, sans-serif;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p {
+    text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+img,
+svg {
+    height: auto;
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        transition: none;
+    }
+}
+
+/* WELCOME */
+
+.carousel-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c3e2dc;
+    min-height: 100vh;
+}
+
+.react-carousel-card {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.react-carousel {
+    flex: 1 1 auto;
+}
+
+.react-carousel-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel {
+    height: 100%;
+}
+
+.carousel .control-dots .dot {
+    box-shadow: none;
+    background: #6b63ff;
+    width: 1rem;
+    height: 1rem;
+}
+
+.carousel .slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.auth-links {
+    display: flex;
+    flex-direction: column;
+    width: 33.8rem;
+    gap: 2.5rem;
+}
+
+/* BOTÓN LOGIN */
+
+.button-login {
+    padding: 0.8rem;
+    background: #f37136;
+    color: white;
+    font-size: 1.6rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    border: none;
+    transition: all 0.2s;
+    font-family: Poppins, sans-serif;
+}
+
+.button-login:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    background: #fde3d7;
+    color: #f37136;
+    transition: 0.5s;
+}
+
+.button-login:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    background: #fde3d7;
+    color: #f37136;
+}
+
+.button-register {
+    padding: 0.8rem;
+    background: #f37136;
+    color: white;
+    font-size: 1.6rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    border: none;
+    transition: all 0.2s;
+    font-family: Poppins, sans-serif;
+}
+
+.button-register:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    background: #fde3d7;
+    color: #f37136;
+    transition: 0.5s;
+}
+
+.button-register:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    background: #fde3d7;
+    color: #f37136;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .auth-links {
+        width: 28.8rem;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+    .button-login {
+        padding: 0.6rem;
+    }
+    .button-register {
+        padding: 0.6rem;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .react-carousel-card {
+        width: 80%;
+    }
+}
+
+/* COMPONENTE PELÍCULAS */
+
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.movie-container {
+    width: calc(22% - 18px);
+    margin-bottom: 20px;
+}
+
+.movie-card {
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    cursor: pointer;
+    background-color: #000;
+    image-rendering: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.movie-card:hover .overlay {
+    opacity: 1;
+}
+
+.poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.backdrop-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-card:hover .movie-details {
+    opacity: 1;
+}
+
+.movie-details p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+.movie-card h3 {
+    margin: 10px 0;
+}
